@@ -88,6 +88,15 @@ nc_landing.util = {
 		}
 	}
 }
+nc_landing.traverse = {
+	sumChildren : function(ta,type){
+		return $(ta).children().map(function() {
+			return type ? $(this).outerHeight() : $(this).outerWidth();
+		}).toArray().reduce(function(a, b) {
+			return a + b;
+		}, 0);
+	}
+}
 nc_landing.action = {
 	scroll_gap : 0,
 	fix_scroll : function(){
