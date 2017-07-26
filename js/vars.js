@@ -1,5 +1,5 @@
 'use strict';
-if(location.protocol.indexOf('file') >= 0 || ( location.protocol.indexOf('http') <= -1 && location.href.indexOf('localhost') <= -1)) location.href=location.href.replace(/.*nc_publish\/(.*)/,'http://localhost/$1');
+if(location.protocol.indexOf('file') >= 0 || ( location.protocol.indexOf('http') <= -1 && location.href.indexOf('localhost') <= -1)) location.href=location.href.replace(/.*(nc_publish|netcombine)\/(.*)/,'http://localhost/$2');
 var nc_landing = {},
 	page_list = {},
 	component_list = [],
