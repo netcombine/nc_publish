@@ -287,16 +287,21 @@
 		$('.progress .bar2').css({
 			'width':$('.progress .txt strong').text()+'%'
 		});
-		if($(window).width()<720){
-			$('.list .depth2').each(function(idx){
-				if(!$(this).hasClass('only')){
-					var per = $(this).find('.progress_note strong').text();
-					$(this).find('.bg').css({
-						'width':per
-					});
-				}
-			});
-		}
+		function mobile_progress(){
+			if($(window).width()<720){
+				$('.list .depth2').each(function(idx){
+					if(!$(this).hasClass('only')){
+						var per = $(this).find('.progress_note strong').text();
+						$(this).find('.bg').css({
+							'width':per
+						});
+					}
+				});
+			}
+		}mobile_progress();
+		$(window).on('resize',function(){
+			mobile_progress();
+		});
 	});
 	</script>
 </head>
