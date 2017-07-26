@@ -1,0 +1,90 @@
+/*
+ * 각 디바이스에서 최적의 출력을 보여줍니다.
+ * Device Default Font를 우선으로 적용합니다.
+ * Android 5.5 : "Nanum Barun Gothic", 나눔바른고딕, 나눔바른고딕OTF, NanumBarunGothicOTF
+ * Android 5.0+ : "Noto Sans CJK"
+ * OSX, iOS, Safari : "Apple SD Gothic Neo", "애플 SD 산돌고딕 Neo", "Helvetica Neue"
+ * Android 5.0 : "Roboto"
+ * basic : sans-serif
+*/
+/*@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);*/
+@charset "utf-8";
+@font-face {
+	font-family: 'Noto Sans Thin';
+	font-style: normal;
+	font-weight: 100;
+	src: local('Noto Sans Thin'), local('NotoSans-Thin'),
+	url(../font/eot/NotoSansKR-Thin-Hestia.eot),
+	url(../font/eot/NotoSansKR-Thin-Hestia.eot?#iefix) format('embedded-opentype'),
+	url(../font/woff/NotoSansKR-Thin-Hestia.woff) format('woff'),
+	url(../font/otf/NotoSansKR-Thin-Hestia.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Noto Sans Light';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Noto Sans Light'), local('NotoSans-Light'),
+	url(../font/eot/NotoSansKR-Light-Hestia.eot),
+	url(../font/eot/NotoSansKR-Light-Hestia.eot?#iefix) format('embedded-opentype'),
+	url(../font/woff/NotoSansKR-Light-Hestia.woff) format('woff'),
+	url(../font/otf/NotoSansKR-Light-Hestia.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Noto Sans DemiLight';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Noto Sans DemiLight'), local('NotoSans-DemiLight'),
+	url(../font/eot/NotoSansKR-DemiLight-Hestia.eot),
+	url(../font/eot/NotoSansKR-DemiLight-Hestia.eot?#iefix) format('embedded-opentype'),
+	url(../font/woff/NotoSansKR-DemiLight-Hestia.woff) format('woff'),
+	url(../font/otf/NotoSansKR-DemiLight-Hestia.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Noto Sans Regular';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Noto Sans Regular'), local('NotoSans-Regular'),
+	url(../font/eot/NotoSansKR-Regular-Hestia.eot),
+	url(../font/eot/NotoSansKR-Regular-Hestia.eot?#iefix) format('embedded-opentype'),
+	url(../font/woff/NotoSansKR-Regular-Hestia.woff) format('woff'),
+	url(../font/otf/NotoSansKR-Regular-Hestia.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Noto Sans Medium';
+	font-style: normal;
+	font-weight: 500;
+	src: local('Noto Sans Medium'), local('NotoSans-Medium'),
+	url(../font/eot/NotoSansKR-Medium-Hestia.eot),
+	url(../font/eot/NotoSansKR-Medium-Hestia.eot?#iefix) format('embedded-opentype'),
+	url(../font/woff/NotoSansKR-Medium-Hestia.woff) format('woff'),
+	url(../font/otf/NotoSansKR-Medium-Hestia.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Noto Sans Bold';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Noto Sans Bold'), local('NotoSans-Bold'),
+	url(../font/eot/NotoSansKR-Bold-Hestia.eot),
+	url(../font/eot/NotoSansKR-Bold-Hestia.eot?#iefix) format('embedded-opentype'),
+	url(../font/woff/NotoSansKR-Bold-Hestia.woff) format('woff'),
+	url(../font/otf/NotoSansKR-Bold-Hestia.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Noto Sans Black';
+	font-style: normal;
+	font-weight: 900;
+	src: local('Noto Sans Black'), local('NotoSans-Black'),
+	url(../font/eot/NotoSansKR-Black-Hestia.eot),
+	url(../font/eot/NotoSansKR-Black-Hestia.eot?#iefix) format('embedded-opentype'),
+	url(../font/woff/NotoSansKR-Black-Hestia.woff) format('woff'),
+	url(../font/otf/NotoSansKR-Black-Hestia.otf) format('opentype');
+}
+
+body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, div, span, strong, table, thead, tbody, tr, th, td, form, fieldset, legend, input, textarea, button{font-family:"Noto Sans Regular", "Apple SD Gothic Neo", "애플 SD 산돌고딕 Neo", "Helvetica Neue", "Roboto", sans-serif;}
+

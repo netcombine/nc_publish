@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=medium-dpi" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="description" content="페이지설명" />
+	<meta name="keywords" content="서비스키워드" />
+	<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="css/font.css"/>
+	<style type="text/css">
+	h1,ul,ol,li,p,div{position:relative;margin:0;padding:0;overflow:hidden;}
+	body{margin:0;padding:0;font-size:12px;line-height:2.5rem;}
+	.header{padding:10px 20px;}
+	h1{float:left;}
+	.header img{display:none;}
+	.header span,.header a{float:right;font-size:13px;font-weight:normal;border:1px solid #ccc;margin-top:16px;padding:5px;line-height:1.0;}
+	.header a{margin:16px 15px 0;font-size:14px;}
+	.title{display:table;width:100%;background:#e0e0e0;border-bottom:1px solid #ccc;}
+	.title span{display:table-cell;padding:0 10px;font-weight:900;text-align:center;}
+	.title .tit_name{width:auto;}
+	.title .tit_condition{width:5%;}
+	.title .tit_id{width:10%;}
+	.title .tit_date{width:10%;}
+	.title .tit_reference{width:20%;}
+	.list li{cursor:pointer;border-top:1px solid #ccc;}
+	.list .depth1 ul{display:none;}
+	.list .depth1-txt{display:block;padding:7px;}
+	.list .depth1-txt:hover{background:#eee;}
+	.list .depth2-txt:hover{background:#eee;}
+	.list .depth2 .con{padding:7px 20px;}
+	.list .con:hover{background:#ddd;}
+	.depth1{border-top:2px solid #bbb;}
+	.depth1:first-of-type{border-top:none;}
+	.depth1:last-of-type{border-bottom:2px solid #bbb;}
+
+	.progress{position:relative;padding:0 10px;margin:0 0 10px 0;overflow:hidden;}
+	.progress .txt{float:left;text-align:left;font-size:14px;}
+	.progress .bar1{display:none;position:relative;box-sizing:border-box;border:3px solid #999;width:100%;height:26px;border-radius:20px;}
+	.progress .bar2{display:none;position:absolute;left:0;top:0;width:50%;height:20px;background:#ff4571;border-radius:10px;}
+	.progress strong{font-size:14px;}
+	.progress strong:after{content:' %';}
+	.progress em{font-style:normal;font-size:14px;}
+	.progress em:first-of-type::after{content:' / ';}
+	.progress .now{margin:0 0 0 20px;}
+	.progress .total{}
+	.info_progress{float:right;right:0;top:0;}
+	.info_progress span{display:inline-block;width:60px;height:30px;background:url('images/progress.png') no-repeat 0 0;background-size:60px 180px;vertical-align:middle;}
+	.info_progress em{margin:0 0 0 20px;display:inline-block;font-size:12px;font-style:normal;vertical-align:middle;}
+	.info_progress .p0{background-position:0 0;}
+	.info_progress .p1{background-position:0 -30px;}
+	.info_progress .p2{background-position:0 -60px;}
+	.info_progress .p3{background-position:0 -90px;}
+	.info_progress .p4{background-position:0 -120px;}
+	.info_progress .p5{background-position:0 -150px;}
+
+	.list .progress_note{background:none;}
+	.list .progress_note strong{font-size:12px;}
+	.list .progress_note em{font-style:normal;font-size:12px;}
+	.list .progress_note em.now{margin:0 0 0 20px;}
+	.list .depth2 a{display:table;position:relative;width:100%;}
+	.list .depth2 a span{display:table-cell;padding:5px 0;vertical-align:middle;}
+	.list .depth2 a .bg{display:none;position:absolute;left:0;top:0;bottom:0;width:100%;background:rgba(255,69,113,.6);z-index:-1;}
+	.sub-no{padding:5px 0 5px 25px !important;width:40%;}
+	.sub-name{padding:5px 0 5px 25px !important;width:40%;text-align:left;}
+	.list ul ul .sub-no{padding:5px 0 5px 40px !important;width:40%;text-align:left;}
+	.list ul .progress_note{width:60%;text-align:left;}
+	.list ul .only .progress_note{width:15%;text-align:left;}
+	.list ul ul .progress_note{width:15%;text-align:left;}
+	.sub-ico{width:5%;text-align:center;font-size:0;line-height:0;}
+	.sub-id{width:10%;text-align:center;}
+	.sub-date{width:10%;text-align:center;color:#ef2b2b;}
+	.sub-reference{width:20%;text-align:center;color:#1d62ff;}
+	.sub-reference em{color:#ef2b2b;}
+	.depth1-txt strong:after{display:inline-block;margin:0 0 0 5px;font-size:10px;content:'▼';}
+	.only .depth1-txt strong:after{content:'';}
+	.depth1-txt.on strong:after{display:inline-block;margin:0 0 0 5px;font-size:10px;content:'▲';}
+	.depth2-txt .sub-no:after{display:inline-block;margin:0 0 0 5px;font-size:10px;content:'▼';}
+	.depth2-txt.only .sub-no:after{content:'';}
+	.only .depth2-txt .sub-no:after{content:'';}
+	.list ul ul .depth2-txt .sub-no:after{content:'';}
+	.depth2-txt.on .sub-no:after{display:inline-block;margin:0 0 0 5px;font-size:10px;content:'▲';}
+	@media all and (max-width:720px){
+		h1{float:none;height:0;font-size:0;}
+		.header a{margin:0;font-size:0;border:none;}
+		.header img{display:inline-block;width:100%;}
+		.header .today_time{margin:0;font-size:12px;border:none;}
+		.progress .txt{position:absolute;left:25px;top:0;font-size:0;line-height:25px;color:#fff;text-shadow:0 0 5px #000,0 0 3px #000,0 0 1px #000;}
+		.progress .bar1{display:block;}
+		.progress .bar2{display:block;}
+		.title .tit_id{display:none;}
+		.title .tit_date{display:none;}
+		.title .tit_reference{display:none;}
+		.list .depth2 a .progress_note{display:none;}
+		.list .depth2 a .sub-id{display:none;}
+		.list .depth2 a .sub-no{width:100%;}
+		.list .depth2 a .sub-date{display:none;}
+		.list .depth2 a .sub-reference{display:none;}
+		.list .depth2 a .bg{display:block;}
+	}
+	</style>
+	<script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+	function setList(){
+		var weblist = [
+			{
+			title : "PC",
+			depth2 : [
+				{title:"HOME 대표 페이지", root : '/abc/html/',
+				 depth3 : [
+					 {href:"#none2",title:"sub_home1",state:"0",id:"#P_sub",date:"2017-05-17",note:"검수완료"},
+					 {href:"#none2",title:"sub_home2",state:"1",id:"#P_sub",date:"2017-05-17",note:"검수완료"},
+					 {href:"#none2",title:"sub_home3",state:"2",id:"#P_sub",date:"2017-05-17",note:"검수완료"},
+					 {href:"#none2",title:"sub_home4",state:"0",id:"#P_sub",date:"2017-05-17",note:"검수완료"},
+					 {href:"#none2",title:"sub_home4",state:"1",id:"#P_sub",date:"2017-05-17",note:"검수완료"},
+					 {href:"#none2",title:"sub_home4",state:"2",id:"#P_sub",date:"2017-05-17",note:"검수완료"},
+					 {href:"#none2",title:"sub_home4",state:"0",id:"#P_sub",date:"2017-05-17",note:"검수완료"},
+					 {href:"#none2",title:"sub_home4",state:"1",id:"#P_sub",date:"2017-05-17",note:"검수완료"},
+					 {href:"#none2",title:"sub_home4",state:"2",id:"#P_sub",date:"2017-05-17",note:"검수완료"},
+					 {href:"#none2",title:"sub_home5",state:"0",id:"#P_sub",date:"2017-05-17",note:"검수완료"}
+				 ]},
+				{title:"HOME2", root : '/bbq/html/',
+				 depth3 : [
+					 {href:"#none2",title:"sub_home1",state:"1",id:"#P_sub",date:"2017-05-17",note:"검수완료"},
+					 {href:"#none2",title:"sub_home2",state:"1",id:"#P_sub",date:"2017-05-17",note:"검수완료"},
+					 {href:"#none2",title:"sub_home3",state:"1",id:"#P_sub",date:"2017-05-17",note:"검수완료"},
+					 {href:"#none2",title:"sub_home4",state:"1",id:"#P_sub",date:"2017-05-17",note:"검수완료"},
+					 {href:"#none2",title:"sub_home5",state:"1",id:"#P_sub",date:"2017-05-17",note:"검수완료"}
+				 ]
+				}
+			]
+		},{
+			title : "mobile",
+			depth2 : [
+				{title:"HOME",href:"#none",state:"1",id:"#P_home",date:"2017-05-17",note:""}
+			]
+		}
+					  ];
+		var wrap = $('.list');
+		for(var i=0,leng=weblist.length;i<leng;++i){
+			var list1, tagBox1;
+			list1 = weblist[i];
+			tagBox1 = $('<li class="depth1"><a href="'+(list1.href ? list1.href : "#none")+'" class="depth1-txt"><strong>'+list1.title+'</strong></a></li>').appendTo(wrap);
+			if(list1.depth2){
+				tagBox1 = $('<ul></ul>').appendTo(tagBox1);
+				for(var j=0,leng=list1.depth2.length;j<leng;++j){
+					var list2, tagBox2, html='';
+					list2 = list1.depth2[j];
+					if(list1.depth2.length == j) break;
+					tagBox2 = $('<li class="depth2"><a href="'+(list2.href ? list2.href : "#none")+'" '+(list2.href ? 'target="_blank"' : '')+' class="depth2-txt"></a></li>').appendTo(tagBox1);
+					html += '<span class="sub-no">'+list2.title+'</span>';
+					html += '<span class="progress_note">진행률 : <strong>50</strong> % <em class="now">2</em> / <em class="total">10</em></span>';
+					tagBox2.find('a').append(html);
+					if(!list2.href){
+						tagBox2.find('a').append('<span class="bg">');
+						tagBox2 = $('<ul></ul>').appendTo(tagBox2);
+						for(var k=0,leng=list2.depth3.length;k<leng;++k){
+							var list3, tagBox3, html = '';
+							list3 = list2.depth3[k];
+							tagBox3 = $('<li><a href="'+list2.root+list3.href+'" target="_blank" class="depth2-txt"></a></li>').appendTo(tagBox2);
+							html += '<span class="sub-name">'+list3.title+'</span>';
+							html += '<span class="progress_note"></span>';
+							html += '<span class="sub-ico">'+list3.state+'</span>';
+							html += '<span class="sub-id">'+list3.id+'</span>';
+							html += '<span class="sub-date">'+list3.date+'</span>';
+							html += '<span class="sub-reference">'+list3.note+'</span>';
+							tagBox3.find('a').append(html);
+						}
+					}else{
+						html = '';
+						html += '<span class="sub-ico">'+list2.state+'</span>';
+						html += '<span class="sub-id">'+list2.id+'</span>';
+						html += '<span class="sub-date">'+list2.date+'</span>';
+						html += '<span class="sub-reference">'+list2.note+'</span>';
+						tagBox2.addClass('only').find('a').append(html);
+					}
+
+				}
+			}
+		}
+	}
+	function set_date(){//날짜 셋팅
+		var da = new Date();
+		var da_txt = da.getFullYear()+'년 '+(da.getMonth()+1)+'월 '+da.getDate()+'일';
+		return da_txt;
+	}
+	$(window).on('load',function(){
+		setList();
+		$('.today_time').text(set_date());
+		$('.depth1-txt,.depth2-txt').on('click',function(){//하위 메뉴를 갖는 경우 - 클릭시 열고 닫기
+			if ($(this).next().is(':visible')){
+				$(this).next().hide();
+				$(this).removeClass('on');
+			} else {
+				$(this).next().show();
+				$(this).addClass('on');
+			}
+		});
+		//통계
+		var circle_num = 0,
+			triangle_num = 0;
+		var total_count = 0,
+			circle_count = 0,
+			triangle_count = 0;
+		$('.list > li').each(function(){
+			$(this).find('.depth2').each(function(idx){
+				circle_num = 0;
+				triangle_num = 0;
+				var now = $(this).find('>.depth2-txt .progress_note .now');
+				var total = $(this).find('>.depth2-txt .progress_note .total');
+				var num = $(this).find('>ul>li').length;
+				if($(this).hasClass('only')){
+					var st = $(this).find('.progress_note strong');
+					total.text('1');
+					total_count++;
+					if($(this).find('.sub-ico').text() == '2' ){
+						now.text('1');
+						circle_count++;
+						st.text('100');
+					}else if($(this).find('.sub-ico').text() == '1'){
+						now.text('0');
+						st.text('50');
+					}else{
+						now.text('0');
+						st.text('0');
+					}
+				}else{
+					var st = $(this).find('>.depth2-txt .progress_note strong');
+					var num_ = num;
+					for(var i = 0 ; i < num ; i ++){
+						if($(this).find('>ul li:eq('+i+') .sub-ico').text() == '5'){
+							num_--;
+						}
+					}
+					total.text(num_);
+					total_count += num_;
+					triangle_count = 0;
+					for(var i = 0 ; i < num ; i ++){
+						if($(this).find('>ul li:eq('+i+') .sub-ico').text() == '1'){
+							triangle_num+=.5;
+							triangle_count+=.5;
+						}else if($(this).find('>ul li:eq('+i+') .sub-ico').text() == '2'){
+							triangle_num+=1;
+							triangle_count+=1;
+						}
+					}
+					circle_count += triangle_count;
+					now.text(triangle_count);
+					st.text(Math.round(((triangle_num)/num_)*1000)/10);
+				}
+				$('.progress span strong').text(Math.round(((circle_count)/total_count)*1000)/10);
+				$('.progress span .now').text(circle_count);
+				$('.progress span .total').text(total_count);
+			});
+			$(this).find('.sub-ico').each(function(){
+				var device = $(this).parents('.depth1').index();
+				var progress_count = $(this).text();
+				$(this).empty();
+				var progress_icon = $('<em>').css({
+					'display':'inline-block',
+					'width':30,
+					'height':30,
+					'background':'url("weblist_images/progress.png") no-repeat 0 0',
+					'background-size':'60px 180px'
+				}).prependTo($(this));
+				if(progress_count == '0'){
+					progress_icon.css('background-position','0 0');
+				}else if(progress_count == '1'){
+					if(device == 0){
+						progress_icon.css('background-position','0 -30px');
+					}else{
+						progress_icon.css('background-position','-30px -90px');
+					}
+				}else if(progress_count == '2'){
+					if(device == 0){
+						progress_icon.css('background-position','0 -60px');
+					}else{
+						progress_icon.css('background-position','-30px -120px');
+					}
+				}else if(progress_count == '5'){
+					progress_icon.css('background-position','-30px -150px');
+				}
+			});
+		});
+		$('.progress .bar2').css({
+			'width':$('.progress .txt strong').text()+'%'
+		});
+		if($(window).width()<720){
+			$('.list .depth2').each(function(idx){
+				if(!$(this).hasClass('only')){
+					var per = $(this).find('.progress_note strong').text();
+					$(this).find('.bg').css({
+						'width':per
+					});
+				}
+			});
+		}
+	});
+	</script>
+</head>
+<body>
+	<div class="header">
+		<h1>Netcombine</h1>
+		<a href="http://netcombine.com" target="_blank">넷컴바인 바로가기<img src="weblist_images/logo.png" alt=""/></a><span class="today_time"></span>
+	</div>
+	<div class="progress">
+		<span class="bar1"><span class="bar2"></span></span>
+		<span class="txt">전체 진행률 : <strong>50</strong><em class="now">2</em><em class="total">10</em></span>
+	</div>
+	<div class="title">
+		<span class="tit_name">Channel</span>
+		<span class="tit_condition">상태</span>
+		<span class="tit_id">ID</span>
+		<span class="tit_date">작업 일자</span>
+		<span class="tit_reference">비고</span>
+	</div>
+	<!-- 진행률 표시 규칙 미진행 : 0, 진행중 : 1, 진행완료 : 2 -->
+	<ul class="list">
+	<!--
+		<li class="depth1">
+			<a href="#none" class="depth1-txt"><strong>Header 대표 페이지</strong></a>
+			<ul>
+				<li class="depth2 only">
+					<a href="http://www.naver.com/" target="_blank" class="depth2-txt">
+						<span class="sub-name">메인 PC</span>
+						<span class="progress_note">진행률 : <strong>50</strong> % <em class="now">1</em> / <em class="total">1</em></span>
+						<span class="sub-ico">2</span>
+						<span class="sub-id">화면 아이디</span>
+						<span class="sub-date">2017-07-18</span>
+						<span class="sub-reference">비고</span>
+					</a>
+				</li>
+			</ul>
+		</li>
+		<li class="depth1">
+			<a href="#none" class="depth1-txt"><strong>PC</strong></a>
+			<ul>
+				<li class="depth2">
+					<a href="#none" class="depth2-txt">
+						<span class="sub_no">검색 ▼</span>
+						<span class="progress_note">진행률 : <strong>50</strong> % <em class="now">2</em> / <em class="total">10</em></span>
+					</a>
+					<ul>
+						<li>
+							<a href="http://www.naver.com/" target="_blank" class="depth2-txt">
+								<span class="sub-name">검색결과 &gt; 키워드</span>
+								<span class="progress_note">진행률 : <strong>50</strong> % <em class="now">1</em> / <em class="total">1</em></span>
+								<span class="sub-ico">2</span>
+								<span class="sub-id">화면 아이디</span>
+								<span class="sub-date">2017-07-18</span>
+								<span class="sub-reference">비고</span>
+							</a>
+						</li>
+						<li>
+							<a href="http://www.naver.com/" target="_blank" class="depth2-txt">
+								<span class="sub-name">프로필 수정 팝업</span>
+								<span class="progress_note">진행률 : <strong>50</strong> % <em class="now">1</em> / <em class="total">1</em></span>
+								<span class="sub-ico">2</span>
+								<span class="sub-id">화면 아이디</span>
+								<span class="sub-date">2017-07-18</span>
+								<span class="sub-reference">비고</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="depth2 only">
+					<a href="http://www.naver.com/" target="_blank" class="depth2-txt">
+						<span class="sub-name">error</span>
+						<span class="progress_note">진행률 : <strong>50</strong> % <em class="now">1</em> / <em class="total">1</em></span>
+						<span class="sub-ico">2</span>
+						<span class="sub-id">화면 아이디</span>
+						<span class="sub-date">2017-07-18</span>
+						<span class="sub-reference">비고</span>
+					</a>
+				</li>
+			</ul>
+		</li>
+		<li class="depth1">
+			<a href="#none" class="depth1-txt"><strong>Mobile</strong></a>
+			<ul>
+				<li class="depth2 only">
+					<a href="http://www.naver.com/" target="_blank" class="depth2-txt">
+						<span class="sub-name">HOME</span>
+						<span class="progress_note">진행률 : <strong>50</strong> % <em class="now">1</em> / <em class="total">1</em></span>
+						<span class="sub-ico">2</span>
+						<span class="sub-id">화면 아이디</span>
+						<span class="sub-date">2017-07-18</span>
+						<span class="sub-reference">비고</span>
+					</a>
+				</li>
+			</ul>
+		</li>
+	-->
+	</ul>
+ </body>
+</html>
