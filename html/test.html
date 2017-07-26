@@ -31,7 +31,7 @@
 	<script type="text/javascript" src="../js/lib/owl.carousel2.js"></script><!-- [C] owl2 API -->
 	<script type="text/javascript" src="../js/lib/swiper.jquery.js"></script><!--[C] swiper API -->
 	<script type="text/javascript" src="../js/lib/jquery.mCustomScrollbar.min.js"></script><!-- [C] scrollbar API -->
-	<script type="text/javascript" src="../js/lib/jquery.selectric.min.js"></script><!-- [C] selectbox API js -->
+	<script type="text/javascript" src="../js/lib/mRselect.js"></script><!-- [C] selectbox API js -->
 	<script type="text/javascript" src="../js/vars.js"></script>
 	<script type="text/javascript" src="../js/common.js"></script>
 	<script type="text/javascript" src="../js/page.js"></script>
@@ -48,13 +48,32 @@
 	<div id="wrap">
 		<div id="container">
 			<div id="header">
-				<h1>프로젝트명</h2>
+				<h1>프로젝트명</h1>
 				<div id="gnb" class="gnb">
 				</div><!-- //#gnb -->
 			</div><!-- //#header -->
 			<div id="content">
 				<h2 class="blind">본문영역</h2>
 				<div class="section entertainment">
+					<div>
+						<select style="width:200px;">
+							<option>aaa</option>
+							<option>bbb</option>
+							<option>ccc</option>
+						</select>
+						<script>
+						$('select').mRselect({
+							container:$('#content'),//셀렉트 생성박스
+							height:50,//각 항목세로크기
+							arrow_size:16,//화살표크기
+							arrow_url:'img/select_arrow.png',//화살표 파일
+							back_co:'#f5f4f3',
+							over_co:'#ccc',
+							select_co:'#48413b',
+							border:1//보더 두께
+						});
+						</script>
+					</div>
 				</div>
 			</div><!-- //#content -->
 			<div id="footer" class="footer">
