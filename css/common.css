@@ -203,13 +203,11 @@ iframe, hr{border:none;}
 .desc-box.on .desc-more .btn-desc-more .ico{display:inline-block;width:16px;height:16px;background:url(../images/ico/ico-group.png) no-repeat -16px -240px;background-size:32px;}
 
 /* 소팅 리스트 */
-.select-sort li{float:left;margin:0 13px 0 0;vertical-align:top;}
-.select-sort li:last-of-type{margin:0;}
-.select-sort a{font-size:12px;color:#b3b3b3;vertical-align:top;}
+.select-sort li{float:left;margin:0 13px 0 0;padding:0 13px 0 0;border-right:1px solid #dcdee0;line-height:14px;vertical-align:middle;}
+.select-sort li:last-of-type{margin:0;padding:0;border:0;}
+.select-sort a{font-size:16px;color:#949699;vertical-align:top;}
 .select-sort a span{vertical-align:top;}
-.select-sort li.on a{color:#333;font-weight:bold;}
-.select-sort .ico{display:none;width:16px;height:16px;margin:0 4px 0 0;vertical-align:top;}
-.select-sort li.on .ico{display:inline-block;background:url(../images/ico/ico-group.png) no-repeat 0 -224px;background-size:32px;}
+.select-sort li.on a{color:#000;font-weight:bold;}
 
 
 /* customScroll */
@@ -218,3 +216,13 @@ iframe, hr{border:none;}
 .customScroll .mCSB_scrollTools .mCSB_draggerContainer{margin:11px 0;}
 .customScroll .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{background-color:#dcdee0 !important;}
 .customScroll .mCSB_scrollTools .mCSB_draggerRail{display:none;}
+
+/* 희권 추가 */
+/*이미지 ratio 박스*/
+.img-box{display:block;position:relative;width:100%;text-align:center;}
+.img-box a{width:100%;}
+.img-thum{display:block;position:relative;padding-top:56.25%;overflow:hidden;}
+.img-center{display:block;position:absolute;left:0;top:0;bottom:0;right:0;-webkit-transform:translate(50%,50%);-ms-transform:translate(50%,50%);transform:translate(50%,50%);}
+.img-box img{position:absolute;top:0;left:0;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);}
+.img-box.ww img{height:100% !important;width:auto !important;}
+.img-box.hh img{width:100% !important;height:auto !important;}
