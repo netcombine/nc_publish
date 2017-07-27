@@ -71,6 +71,13 @@
 					<a href="javascript:void(0)" class="btn">버튼</a>
 				</div>
 				<div style="margin:10px 0 0;">
+					<span class="inputbox">
+						<input type="text" placeholder="메롱" value="아핳핳"/>
+						<a  href="javascript:void(0)" class="cancel"><span class="blind">삭제</span></a>
+					</span>
+					<a href="javascript:void(0)" class="btn">버튼</a>
+				</div>
+				<div style="margin:10px 0 0;">
 					<div class="filebox type1">
 						<!--<span class="txt-mb">파일 첨부 용량<em>0</em>/50MB</span>-->
 						<ul class="file-list">
@@ -187,7 +194,8 @@
 					/* input */
 					.inputbox{display:inline-block;position:relative;}
 					.inputbox input{vertical-align:middle;}
-					.inputbox .cancel{position:absolute;right:5px;top:50%;margin:-8px 0 0;width:16px;height:16px;background:url(../images/form/ico-input-cancel.png) no-repeat;}
+					.inputbox .cancel{display:none;position:absolute;right:5px;top:50%;margin:-8px 0 0;width:16px;height:16px;background:url(../images/form/ico-input-cancel.png) no-repeat;}
+					.inputbox .cancel.on{display:block;}
 					.inputbox input + a.btn{vertical-align:middle;}
 					
 					
@@ -242,7 +250,22 @@
 						/* input */
 						var input = $('.inputbox input');
 						input.each(function(){
-							
+							if(this.value == ''){
+								$(this).siblings('.cancel').removeClass('on');
+							}else{
+								$(this).siblings('.cancel').addClass('on');
+							}
+							$(this).on('keyup',function(){
+								if(this.value == ''){
+									$(this).siblings('.cancel').removeClass('on');
+								}else{
+									$(this).siblings('.cancel').addClass('on');
+								}
+							});
+							$(this).siblings('.cancel').on('click',function(){
+								$(this).siblings('input').val('');
+								$(this).removeClass('on');
+							});
 						});
 						
 						/* checkbox , radio */
@@ -275,14 +298,6 @@
 								$(this).closest('label').removeClass('focus');
 							});
 						});
-						$('.inputbox input').on('textchange',function(){
-							console.log('textchange event');
-						}).on('input',function(){
-							console.log('input event');
-						}).on('focusin focusout',function(){
-							console.log('focus');
-						});
-						
 					})();
 					
 				</script>
