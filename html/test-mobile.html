@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=medium-dpi" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="shortcut icon" href="../images/common/favicon.ico" />
+	<!-- <link rel="shortcut icon" href="../images/common/favicon.png" />
+	<link rel="apple-touch-icon" href="../images/common/favicon.png" /> -->
+	<meta name="description" content="페이지설명" />
+	<meta name="keywords" content="서비스키워드" />
+	<meta property="og:title" content="KBS 홈페이지" />
+	<meta property="og:site_name" content="Netcombine" />
+	<meta property="og:image" content="../image/common/nc_facebook.jpg" />
+	<meta property="og:description" content="netcombine framework" />
+	<meta name="mobile-web-app-capable" content="yes"><!-- [C] 안드로이드 홈화면추가시 상단 주소창 제거 -->
+	<meta name="apple-mobile-web-app-capable" content="yes"><!-- [C] ios홈화면추가시 상단 주소창 제거 -->
+	<title>Netcombine Framework</title>
+	<link rel="stylesheet" type="text/css" href="../css/font.css" media="all" /><!-- [C] webfont 본고딕-->
+	<link rel="stylesheet" type="text/css" href="../css/common.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="../css/components.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="../css/owl.carousel2.css" media="all" /><!-- [C] owl2 API css -->
+	<link rel="stylesheet" type="text/css" href="../css/swiper.css" media="all" /><!-- [C] swiper API css -->
+	<link rel="stylesheet" type="text/css" href="../css/jquery.mCustomScrollbar.min.css" media="all" /><!-- [C] scrollbar API css -->
+	<link rel="stylesheet" type="text/css" href="../css/selectric.css" media="all" /><!-- [C] select box css -->
+	<!-- <link rel="stylesheet" type="text/css" href="../css/jquery.selectBox.css" media="all" />[C] mobile select box css -->
+	<script type="text/javascript" src="../js/lib/jquery-3.2.1.min.js"></script><!--[C] jquery API-->
+	<script type="text/javascript" src="../js/lib/handlebars-v4.0.5.js"></script><!--[C] handlebars tmpl API-->
+	<script type="text/javascript" src="../js/lib/owl.carousel2.js"></script><!-- [C] owl2 API -->
+	<script type="text/javascript" src="../js/lib/swiper.jquery.js"></script><!--[C] swiper API -->
+	<script type="text/javascript" src="../js/lib/jquery.mCustomScrollbar.min.js"></script><!-- [C] scrollbar API -->
+	<script type="text/javascript" src="../js/lib/jquery.selectric.min.js"></script><!-- [C] selectbox API js -->
+	<!-- <script type="text/javascript" src="../js/lib/jquery.selectBox.js"></script>[C] mobile-selectbox API js -->
+	<script type="text/javascript" src="../js/vars.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/components.js"></script>
+	<script type="text/javascript">
+		$(window).on('load',function(){
+			$('.btn-fix-scroll').off('click').on('click',function(){
+				nc_landing.action.fix_scroll();								// fix_scroll
+			});
+			$('.btn-auto-scroll').off('click').on('click',function(){
+				nc_landing.action.auto_scroll();							// auto_scroll
+			});
+			nc_landing.action.anchor();										// anchor
+			nc_landing.action.selecton($('.test-selecton'));				// selecton
+			nc_landing.action.toggleon($('.test-toggleon span'));				// toggleon
+			nc_landing.action.toggleon($('.test-toggleon02 li'));			// toggleon02
+			nc_landing.action.switch($('.test-switch li'));					// switch
+			scroll_fn['top_btn'] = 'nc_landing.action.top_btn()';			// top_btn
+			nc_landing.action.img_ratio('test-img_ratio');
+			$('.btn-loading').off('click').on('click',function(){
+				nc_landing.action.loading_on();								// loading_on
+				$('.loading').off('click').on('click',function(){
+					nc_landing.action.loading_off();						// loading_off
+				});
+			});
+			nc_landing.action.tab();										// tab
+			nc_landing.action.text_toggle($('.text-toggle'),40);			// text_toggle
+			//nc_landing.action.select_drop();								// select_drop
+			nc_landing.action.select_sort();								// select_sort
+		});
+	</script>
+	<style type="text/css">
+		/* test */
+		.test-box{position:relative;}
+		.test-box>div{position:relative;padding:0 0 0 75px;}
+		.test-box h3{position:absolute;top:10px;left:5px;width:70px;font-size:13px;word-break:break-all;color:#666eee;}
+
+		.test-box .btn-box{overflow:hidden;}
+		.test-box .btn-box span{display:inline-block;width:100%;}
+		.test-box .btn-box li{float:left;}
+		.test-box .btn-box a{display:block;border:1px solid #000;background:#fff;padding:10px;margin:10px;text-align:center;}
+		.test-box .btn-box a.on{background:#000;color:#fff;}
+		
+		.test-top_btn .btn-box a{display:none;}
+		
+		.test-img_ratio .img-box{margin:10px 0;}
+		.test-img_ratio .img-thum{padding-top:44%;}
+		
+		.test-tab .tabArea{margin:10px auto 0;}
+		.test-tab .conArea{height:100px;background:#eee;}
+		
+		.test-text_toggle .text-toggle{display:inline-block;margin:10px;}
+		.test-text_toggle .text-toggle .btn-des{display:inline-block;color:#0088cf;text-decoration:underline !important;}
+		.test-text_toggle .text-toggle .btn-des.compress{display:block;}
+		
+		.test-select .select-box{border:1px solid #dddee0;margin:10px;}
+		
+		.test-select-sort .select-sort{display:inline-block;margin:10px;}
+	</style>
+</head>
+<body>
+	<div id="skipNav" class="skip_navi">
+		<ul>
+		<li><a href="#header">메뉴 바로가기</a></li>
+		<li><a href="#content">본문 바로가기</a></li>
+		<li><a href="#footer">푸터 바로가기</a></li>
+		</ul>
+	</div><!-- //#skip_navigation-->
+	<div id="wrap" style="height:3000px">
+		<div id="container">
+			<div id="header">
+				<h1>TEST</h2>
+				<div id="gnb" class="gnb">
+				</div><!-- //#gnb -->
+			</div><!-- //#header -->
+			<div id="content">
+				<h2 class="blind">본문영역</h2>
+				<div class="test-box">
+					<div class="test-scroll">
+						<h3>scroll</h3>
+						<ul class="btn-box">
+							<li><a href="#none" class="btn-fix-scroll">fix_scroll</a></li>
+							<li><a href="#none" class="btn-auto-scroll">auto_scroll</a></li>
+						</ul>
+					</div><!-- //.test-scroll -->
+					<div class="test-anchor">
+						<h3>anchor</h3>
+						<div class="btn-box">
+							<a href="#none" class="anchor" data-target="test-scroll">anchor</a>
+						</div>
+					</div><!-- //.test-anchor -->
+					<div class="test-selecton">
+						<h3>selecton</h3>
+						<div class="btn-box">
+							<a href="#none" class="btn-selecton">selecton</a>
+						</div>
+					</div><!-- //.test-selecton -->
+					<div class="test-toggleon">
+						<h3>toggleon</h3>
+						<div class="btn-box">
+							<span>
+								<a href="#none" class="btn-toggleon">toggleon</a>
+							</span>
+						</div>
+					</div><!-- //.test-toggleon -->
+					<div class="test-toggleon02">
+						<h3>toggleon02</h3>
+						<ul class="btn-box">
+							<li><a href="#none" class="btn-toggleon">toggle01</a></li>
+							<li><a href="#none" class="btn-toggleon">toggle02</a></li>
+							<li><a href="#none" class="btn-toggleon">toggle03</a></li>
+						</ul>
+					</div><!-- //.test-toggleon02 -->
+					<div class="test-switch">
+						<h3>switch</h3>
+						<ul class="btn-box">
+							<li><a href="#none">switch01</a></li>
+							<li><a href="#none">switch02</a></li>
+							<li><a href="#none">switch03</a></li>
+						</ul>
+					</div><!-- //.test-switch -->
+					<div class="test-top_btn">
+						<h3 class="blind">top_btn</h3>
+						<div class="btn-box">
+							<a href="#none" class="btn-top">top_btn</a>
+						</div>
+					</div><!-- //.test-top_btn -->
+					<div class="test-img_ratio">
+						<h3>img_ratio</h3>
+						<span class="img-box">
+							<span class="img-thum">
+								<span class="img-center">
+									<img src="../images/dummy/test01.jpg" alt="대체텍스트">
+								</span>
+							</span>
+						</span>
+					</div><!-- //.test-img_ratio -->
+					<div class="test-loading">
+						<h3>loading</h3>
+						<div class="btn-box">
+							<a href="#none" class="btn-loading">loading</a>
+						</div>
+					</div><!-- //.test-loading -->
+					<div class="test-tab">
+						<h3>tab</h3>
+						<div class="tabWrap tabJs">
+							<ul class="tabArea tab03 col6">
+								<li class="on"><a href="#none">tab1</a></li>
+								<li><a href="#none">tab2</a></li>
+								<li><a href="#none">tab3</a></li>
+								<li><a href="#none">tab4</a></li>
+								<li><a href="#none">tab5</a></li>
+								<li><a href="#none">tab6</a></li>
+							</ul>
+							<div class="conArea">
+								<div class="tabCon">page1</div>
+								<div class="tabCon">page2</div>
+								<div class="tabCon">page3</div>
+								<div class="tabCon">page4</div>
+								<div class="tabCon">page5</div>
+								<div class="tabCon">page6</div>
+							</div>
+						</div>
+					</div><!-- //.test-tab -->
+					<div class="test-text_toggle">
+						<h3>text-toggle</h3>
+						<div class="text-toggle">
+							<span>원질이 평화스러운 이것은 뿐이다. 이것을 풀밭에 영락과 사람은 낙원을 옷을 인생에 실현에 구하지 황금시대다. 봄날의 무엇이 역사를 아름다우냐? 대중을 미묘한 황금시대를 사랑의 가치를 봄바람이다. 설레는 예가 그들에게 따뜻한 자신과 사랑의 얼마나 부패뿐이다. 낙원을 있는 끓는 현저하게 그들에게 거선의 이 아름다우냐? 같으며, 용기가 되려니와, 보이는 끝까지 있는가? 뭇 그들의 얼음이 길지 인간은 것이다. 따뜻한 가는 실로 있는 그것을 끓는 새 못할 투명하되 아름다우냐? 영락과 할지니, 오직 앞이 피어나는 같이, 무엇을 철환하였는가?원질이 평화스러운 이것은 뿐이다. 이것을 풀밭에 영락과 사람은 낙원을 옷을 인생에 실현에 구하지 황금시대다. 봄날의 무엇이 역사를 아름다우냐? 대중을 미묘한 황금시대를 사랑의 가치를 봄바람이다. 설레는 예가 그들에게 따뜻한 자신과 사랑의 얼마나 부패뿐이다. 낙원을 있는 끓는 현저하게 그들에게 거선의 이 아름다우냐? 같으며, 용기가 되려니와, 보이는 끝까지 있는가? 뭇 그들의 얼음이 길지 인간은 것이다. 따뜻한 가는 실로 있는 그것을 끓는 새 못할 투명하되 아름다우냐? 영락과 할지니, 오직 앞이 피어나는 같이, 무엇을 철환하였는가?원질이 평화스러운 이것은 뿐이다. 이것을 풀밭에 영락과 사람은 낙원을 옷을 인생에 실현에 구하지 황금시대다. 봄날의 무엇이 역사를 아름다우냐? 대중을 미묘한 황금시대를 사랑의 가치를 봄바람이다. 설레는 예가 그들에게 따뜻한 자신과 사랑의 얼마나 부패뿐이다. 낙원을 있는 끓는 현저하게 그들에게 거선의 이 아름다우냐? 같으며, 용기가 되려니와, 보이는 끝까지 있는가? 뭇 그들의 얼음이 길지 인간은 것이다. 따뜻한 가는 실로 있는 그것을 끓는 새 못할 투명하되 아름다우냐? 영락과 할지니, 오직 앞이 피어나는 같이, 무엇을 철환하였는가?</span><a href="#none"class="btn-des">더보기</a>
+						</div>
+					</div><!-- //.test-text_toggle -->
+					<div class="test-select">
+						<h3>select</h3>
+						<!-- 
+						<div class="select-box">
+							<select>
+								<option value="type0" selected="selected">선택</option>
+								<option value="type1">옵션1</option>
+								<option value="type2">옵션2</option>
+								<option value="type3">옵션3</option>
+								<option value="type4">옵션4</option>
+								<option value="type5">옵션5</option>
+							</select>
+						</div> -->
+					</div><!-- //.test-select -->
+					<div class="test-select-sort">
+						<h3>select-sort</h3>
+						<ul class="select-sort">
+							<li class="on"><a href="#none">최신순</a><span class="ico"></span><span class="bar"></span></li>
+							<li><a href="#none">인기순</a><span class="ico"></span></li>
+						</ul>
+					</div><!-- //.test-select-sort -->
+					<div class="test-check">
+						<h3>checkbox</h3>
+						<div class="check-box"></div>
+					</div><!-- //.test-check -->
+					<div class="test-radio">
+						<h3>radio</h3>
+						<div class="radio-box"></div>
+					</div><!-- //.test-radio -->
+				</div>
+			</div><!-- //#content -->
+			<div id="footer" class="footer">
+				<h2 class="blind">푸터영역</h2>
+			</div><!-- //#footer -->
+		</div><!-- //#container -->
+	</div><!-- //#wrap -->
+</body>
+</html>
