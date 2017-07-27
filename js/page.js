@@ -1,5 +1,5 @@
 $(window).on('load',function(){
-	$('#content > div').each(function(idx){
+	$('#content > .page').each(function(idx){
 		var classname = $(this).attr('class').split(' ');
 		page_list['page_'+classname[0]] = nc_landing.page[classname[0]].init;
 		if(classname[1] != undefined){

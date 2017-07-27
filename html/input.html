@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=medium-dpi" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="shortcut icon" href="../images/common/favicon.ico" />
+	<link rel="shortcut icon" href="../images/common/favicon.png" />
+	<link rel="apple-touch-icon" href="../images/common/favicon.png" />
+	<meta name="description" content="페이지설명" />
+	<meta name="keywords" content="서비스키워드" />
+	<meta property="og:title" content="Netcombine 홈페이지" />
+	<meta property="og:site_name" content="Netcombine" />
+	<meta property="og:image" content="../image/common/nc_facebook.jpg" />
+	<meta property="og:description" content="netcombine framework" />
+	<meta name="mobile-web-app-capable" content="yes"><!-- [C] 안드로이드 홈화면추가시 상단 주소창 제거 -->
+	<meta name="apple-mobile-web-app-capable" content="yes"><!-- [C] ios홈화면추가시 상단 주소창 제거 -->
+	<title>Netcombine Framework</title>
+	<link rel="stylesheet" type="text/css" href="../css/font.css" media="all" /><!-- [C] webfont 본고딕-->
+	<link rel="stylesheet" type="text/css" href="../css/common.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="../css/components.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="../css/owl.carousel2.css" media="all" /><!-- [C] owl2 API css -->
+	<link rel="stylesheet" type="text/css" href="../css/swiper.css" media="all" /><!-- [C] swiper API css -->
+	<link rel="stylesheet" type="text/css" href="../css/jquery.mCustomScrollbar.min.css" media="all" /><!-- [C] scrollbar API css -->
+	<link rel="stylesheet" type="text/css" href="../css/selectric.css" media="all" /><!-- [C] select box css -->
+	<script type="text/javascript" src="../js/lib/jquery-1.12.3.min.js"></script><!--[C] jquery API-->
+	<script type="text/javascript" src="../js/lib/handlebars-v4.0.5.js"></script><!--[C] handlebars tmpl API-->
+	<script type="text/javascript" src="../js/lib/owl.carousel2.js"></script><!-- [C] owl2 API -->
+	<script type="text/javascript" src="../js/lib/swiper.jquery.js"></script><!--[C] swiper API -->
+	<script type="text/javascript" src="../js/lib/jquery.mCustomScrollbar.min.js"></script><!-- [C] scrollbar API -->
+	<!--<script type="text/javascript" src="../js/lib/jquery.selectric.min.js"></script>--><!-- [C] selectbox API js -->
+	<script type="text/javascript" src="../js/lib/mRselect.js"></script><!-- [C] selectbox API js -->
+	<script type="text/javascript" src="../js/vars.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/page.js"></script>
+	<script type="text/javascript" src="../js/components.js"></script>
+</head>
+<body>
+	<div id="skipNav" class="skip_navi">
+		<ul>
+		<li><a href="#header">메뉴 바로가기</a></li>
+		<li><a href="#content">본문 바로가기</a></li>
+		<li><a href="#footer">푸터 바로가기</a></li>
+		</ul>
+	</div><!-- //#skip_navigation-->
+	<div id="wrap">
+		<div id="container">
+			<div id="content">
+				<h2 class="blind">본문영역</h2>
+				<hr style="margin:10px 0;border:1px solid #000;"/>
+				<p>본문영역</p>
+				<div style="margin:10px 0 0;">
+					<label class="checkbox type01"><input type="checkbox"/><span>체크박스</span></label>
+					<label class="checkbox type01"><input type="checkbox" checked/><span>체크박스</span></label>
+					<label class="checkbox type01"><input type="checkbox" disabled/><span>체크박스</span></label>
+					<label class="checkbox type01"><input type="checkbox" checked disabled/><span>체크박스</span></label>
+				</div>
+				<div style="margin:10px 0 0;">
+					<label class="radiobox type01"><input type="radio" name="radio" checked/><span>라디오박스</span></label>
+					<label class="radiobox type01"><input type="radio" name="radio"/><span>라디오박스</span></label>
+					<label class="radiobox type01"><input type="radio" name="radio" disabled/><span>라디오박스</span></label>
+				</div>
+				<div style="margin:10px 0 0;">
+					<span class="inputbox">
+						<input type="text" placeholder="메롱"/>
+						<a  href="javascript:void(0)" class="cancel"><span class="blind">삭제</span></a>
+					</span>
+					<a href="javascript:void(0)" class="btn">버튼</a>
+				</div>
+				<div style="margin:10px 0 0;">
+					<div class="filebox type1">
+						<!--<span class="txt-mb">파일 첨부 용량<em>0</em>/50MB</span>-->
+						<ul class="file-list">
+							<li class="btn-add">
+								<label>
+									<span class="txt">파일첨부</span>
+									<input type="file" />
+								</label>
+							</li>
+							<!--추가되는 형태
+							<li class="files">
+								<span class="file-txt"></span>
+								<span class="btn-del"><span class="blind">파일삭제</span></span>
+							</li>
+							-->
+						</ul>
+					</div>
+				</div>
+				<script>
+					$(function(){
+						var files = [];
+						$('.filebox.type1 input:file').on('change',function(){
+							var parent = $(this).parent().parent().parent(),
+								file_name = $(this).val().split('\\');
+							var f_list = $('<li class="files">').appendTo(parent);
+							$('<span class="file-txt">').appendTo(f_list).text(file_name[file_name.length-1]);
+							$('<span class="btn-del"><span class="blind">파일삭제</span></span>').appendTo(f_list).off('click').on('click',function(){
+								$(this).parent().empty().remove();
+							});
+							/*if($(this).val){
+								var browser = nc_landing.util.win_info.get_device();
+								if(browser == 'ie8' || browser == 'ie9'){
+									var myFSO = new ActiveXObject("Scripting.FileSystemObject");
+									var filepath = document.upload.file.value;
+									var thefile = myFSO.getFile(filepath);
+									files.push(thefile.size);
+								}else{
+									files.push(this.files[0].size);
+								}
+								console.log(files);
+							}*/
+						});
+						
+					});
+				</script>
+				<div style="margin:10px 0 0;">
+					<div class="filebox type2">
+						<span class="file-name">
+							<input type="text" value="" readonly/>
+						</span>
+						<label class="file-input">
+							<span class="txt">파일첨부</span>
+							<input type="file"/>
+						</label>
+					</div>
+					<script>
+						$(function(){
+							$('.filebox.type2 input:file').on('change',function(){
+								var path = this.value.split('\\');
+								path = path[path.length-1];
+								$(this).closest('.filebox.type2').find('.file-name input').val(path);
+							});
+						});
+					</script>
+				</div>
+				<div style="margin:10px 0 0;">
+					<div>세로나열</div>
+					<ul class="btn-list">
+						<li><a href="#none" class="btn type1">버튼1</a></li>
+						<li><a href="#none" class="btn type2">버튼2</a></li>
+						<li><a href="#none" class="btn type3">버튼3</a></li>
+						<li><a href="#none" class="btn type4">버튼4</a></li>
+					</ul>
+				</div>
+				<div style="margin:10px 0 0;">
+					<div>가로나열</div>
+					<ul class="btn-list fl">
+						<li><a href="#none" class="btn type1">버튼1</a></li>
+						<li><a href="#none" class="btn type2">버튼2</a></li>
+						<li><a href="#none" class="btn type3">버튼3</a></li>
+						<li><a href="#none" class="btn type4">버튼4</a></li>
+					</ul>
+				</div>
+				<hr style="margin:10px 0;border:1px solid #000;"/>
+				<style>
+					/* btn */
+					.btn-list{overflow:hidden;}
+					.btn-list.fl li{float:left;}
+
+					a.btn{display:inline-block;box-sizing:border-box;padding:8px 20px;height:37px;background:#2470ee;color:#fff;font-size:14px;line-height:20px;}
+					a.btn.type1{background:#2470ee;}
+					a.btn.type2{background:#0e5ad9;}
+					a.btn.type3{background:#dce0e7;color:#000;}
+					a.btn.type4{background:#969ca8;}
+					
+					/* file */
+					.filebox.type1{position:relative;margin:5px 0 0 0;}
+					.filebox.type1 .txt-mb{position:absolute;display:inline-block;top:0;right:12px;font-size:14px;line-height:35px;color:#9496a3;}
+					.filebox.type1 .file-list{overflow:hidden;min-height:35px;margin:0 150px 0 110px;}
+					.filebox.type1 .file-list li{position:relative;float:left;margin:0 20px 0 0;box-sizing:border-box;}
+					.filebox.type1 .file-list .btn-add{position:absolute;top:0;left:0;width:84px;height:35px;background:#2470ee;border:1px solid #2470ee;vertical-align:top;color:#fff;}
+					.filebox.type1 .btn-add .txt{display:block;width:100%;height:100%;font-size:14px;line-height:32px;text-align:center;}
+					.filebox.type1 .btn-add input{position:absolute;left:0;top:0;width:84px;height:32px;opacity:0;cursor:pointer;z-index:1;}
+					.filebox.type1 .files{padding:0 25px 0 0;}
+					.filebox.type1 .files .file-txt{line-height:30px;font-size:14px;color:#54585e;}
+					.filebox.type1 .files .btn-del{position:absolute;top:7px;right:0;display:inline-block;width:20px;height:20px;background:url(../images/form/ico-file-close.png) no-repeat center center;z-index:1;cursor:pointer;}
+					.filebox.type2{display:inline-block;position:relative;padding:0 84px 0 0;}
+					.filebox.type2 .file-name{width:100%;}
+					.filebox.type2 .file-name input{width:100%;}
+					.filebox.type2 .file-input{position:absolute;right:0;top:0;bottom:0;}
+					.filebox.type2 .file-input input{position:absolute;right:0;top:0;bottom:0;left:0;opacity:0;filter:alpha(opacity=0)}
+					.filebox.type2 .file-input .txt{display:block;box-sizing:border-box;padding:8px 0;width:84px;height:37px;background:#2470ee;border:1px solid #2470ee;vertical-align:top;color:#fff;font-size:14px;line-height:20px;text-align:center;}
+					
+					/* input */
+					.inputbox{display:inline-block;position:relative;}
+					.inputbox input{vertical-align:middle;}
+					.inputbox .cancel{position:absolute;right:5px;top:50%;margin:-8px 0 0;width:16px;height:16px;background:url(../images/form/ico-input-cancel.png) no-repeat;}
+					.inputbox input + a.btn{vertical-align:middle;}
+					
+					
+					/* checkbox , radio */
+					input[type=checkbox],input[type=radio]{position:absolute;left:0;top:0;width:0;height:0;margin:0;padding:0;opacity:0;filter:alpha(opacity=0); -webkit-appearance:none;-webkit-border-radius:0;}
+					.checkbox.type01{position:relative;display:inline-block;}
+					.checkbox.type01:before{content:"";position:absolute;left:0;top:0;width:20px;height:20px;background:url(../images/form/ico-checkbox-style01.png) no-repeat 0 0;}
+					.checkbox.type01.checked:before{background-position:0 -20px;}
+					.checkbox.type01.disabled:before{background-position:0 -40px;}
+					.checkbox.type01.checked.disabled:before{background-position:0 -60px;}
+					.checkbox.type01.focus:before{background-position:-20px 0;}
+					.checkbox.type01.focus.checked:before{background-position:-20px -20px;}
+					.checkbox.type01.focus.disabled:before{background-position:-20px -40px;}
+					.checkbox.type01.focus.checked.disabled:before{background-position:-20px -60px;}
+					.checkbox.type01 > span{display:block;margin:0 0 0 24px;font-size:16px;line-height:20px;color:#000;}
+					
+					.radiobox.type01{position:relative;display:inline-block;}
+					.radiobox.type01:before{content:"";position:absolute;left:0;top:0;width:20px;height:20px;background:url(../images/form/ico-radio-style01.png) no-repeat 0 0;}
+					.radiobox.type01.checked:before{background-position:0 -20px;}
+					.radiobox.type01.disabled:before{background-position:0 -40px;}
+					.radiobox.type01.checked.disabled:before{background-position:0 -60px;}
+					.radiobox.type01.focus:before{background-position:-20px 0;}
+					.radiobox.type01.focus.checked:before{background-position:-20px -20px;}
+					.radiobox.type01.focus.disabled:before{background-position:-20px -40px;}
+					.radiobox.type01.focus.checked.disabled:before{background-position:-20px -60px;}
+					.radiobox.type01 > span{display:block;margin:0 0 0 24px;font-size:16px;line-height:20px;color:#000;}
+					
+					@media all and (max-width:768px){
+						.inputbox .cancel{position:absolute;right:5px;top:50%;margin:-8px 0 0;width:16px;height:16px;background:url(../images/form/m-ico-input-cancel.png) no-repeat;background-size:16px;}
+						.checkbox.type01{position:relative;display:inline-block;}
+						.checkbox.type01:before{content:"";position:absolute;left:0;top:0;width:21px;height:21px;background:url(../images/form/m-ico-checkbox-style01.png) no-repeat 0 0;background-size:42px;}
+						.checkbox.type01.checked:before{background-position:0 -21px;}
+						.checkbox.type01.disabled:before{background-position:0 -42px;}
+						.checkbox.type01.checked.disabled:before{background-position:0 -63px;}
+						.checkbox.type01.focus:before{background-position:-21px 0;}
+						.checkbox.type01.focus.checked:before{background-position:-21px -21px;}
+						.checkbox.type01.focus.disabled:before{background-position:-21px -42px;}
+						.checkbox.type01.focus.checked.disabled:before{background-position:-21px -63px;}
+						.radiobox.type01{position:relative;display:inline-block;}
+						.radiobox.type01:before{content:"";position:absolute;left:0;top:0;width:21px;height:21px;background:url(../images/form/m-ico-radio-style01.png) no-repeat 0 0;background-size:42px;}
+						.radiobox.type01.checked:before{background-position:0 -21px;}
+						.radiobox.type01.disabled:before{background-position:0 -42px;}
+						.radiobox.type01.checked.disabled:before{background-position:0 -63px;}
+						.radiobox.type01.focus:before{background-position:-21px 0;}
+						.radiobox.type01.focus.checked:before{background-position:-21px -21px;}
+						.radiobox.type01.focus.disabled:before{background-position:-21px -42px;}
+						.radiobox.type01.focus.checked.disabled:before{background-position:-21px -63px;}
+					}
+				</style>
+				<script>
+					(function(){
+						/* input */
+						var input = $('.inputbox input');
+						input.each(function(){
+							
+						});
+						
+						/* checkbox , radio */
+						var input = $('.checkbox :checkbox,.radiobox :radio');
+						input.each(function(){
+							var box = $(this).closest('label');
+								$(this).is(':checked') ? box.addClass('checked') : box.removeClass('checked');
+								$(this).is(':disabled') ? box.addClass('disabled') : box.removeClass('disabled');
+							$(this).on('click',function(){
+								if($(this).is(':checkbox')){
+									if($(this).prop('checked')){
+										box.addClass('checked');
+										$(this).attr('checked',true);
+									}else{
+										box.removeClass('checked');
+										$(this).attr('checked',false);
+									}
+								}else if($(this).is(':radio')){
+									if($(this).prop('disabled')) return ;
+									var nameGroup = $('[name='+$(this).attr('name')+']');
+									nameGroup.closest('label').removeClass('checked');
+									nameGroup.attr('checked',false);
+									$(this).closest('label').addClass('checked');
+									$(this).attr('checked',true);
+								}
+							}).on('focusin',function(){
+								console.log('a');
+								$(this).closest('label').addClass('focus');
+							}).on('focusout',function(){
+								$(this).closest('label').removeClass('focus');
+							});
+						});
+						$('.inputbox input').on('textchange',function(){
+							console.log('textchange event');
+						}).on('input',function(){
+							console.log('input event');
+						}).on('focusin focusout',function(){
+							console.log('focus');
+						});
+						
+					})();
+					
+				</script>
+				
+			</div><!-- //#content -->
+		</div><!-- //#container -->
+	</div><!-- //#wrap -->
+</body>
+</html>

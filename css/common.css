@@ -17,8 +17,8 @@ textarea{border:1px solid #d4d4d4}
 input.radio, input.check,fieldset{border:0;background:none}
 input, button, select, a+button,.selectBox,.calendar{*margin-right:4px}
 input,textarea{-webkit-appearance:none;-webkit-border-radius:0;}
-input,textarea::-webkit-scrollbar{width:0;height:0;}
-input,textarea::-webkit-scrollbar-thumb{background:none;}
+input::-webkit-scrollbar,textarea::-webkit-scrollbar{width:0;height:0;}
+input::-webkit-scrollbar-thumb,textarea::-webkit-scrollbar-thumb{background:none;}
 input+.hyphen{*margin-left:-4px}
 input[type=text]+.btnS, input[type=password]+.btnS,input[type=text]+input[type=text], input[type=password]+input[type=text], input[type=text]+input[type=password]{margin-left:10px}
 input[type=text][disabled]{background-color:#f7f7f7}
@@ -211,53 +211,6 @@ iframe, hr{border:none;}
 .select-sort .ico{display:none;width:16px;height:16px;margin:0 4px 0 0;vertical-align:top;}
 .select-sort li.on .ico{display:inline-block;background:url(../images/ico/ico-group.png) no-repeat 0 -224px;background-size:32px;}
 
-/* radio checkbox common */
-input[type='radio'], input[type='checkbox']{opacity:0; position:absolute; top: 10px; left:3px; filter:alpha(opacity=0); margin:0; z-index:10;}
-input[type='checkbox']+label, input[type='radio']+label{position:relative; display:inline-block; margin:0; padding:0; cursor:pointer; z-index:0; color:#666; letter-spacing:-1px;}
-
-/*라디오버튼*/
-/* radio+label */
-input[type='radio']{width:20px;height:20px;cursor:pointer;}
-input[type='radio']+label{min-height:20px;margin:5px 0 0;padding:5px 0 8px 23px;font-size:13px;line-height:20px;color:#565a5d;background-image:url(../images/form/ico-radio-default.png);background-repeat:no-repeat;background-position:0 4px;background-size:20px;}
-/* radio checked+label */
-input[type='radio']:checked+label{background-image:url(../images/form/ico-radio-chk.png);}
-/* radio disabled+label */
-input[type='radio']:disabled+label{color:#b7b7b7;background-image:url(../images/form/ico-radio-default-dis.png);}
-/* radio disabled:checked+label */
-input[type='radio']:disabled:checked+label{color:#b7b7b7;background-image:url(../images/form/ico-radio-chk-dis.png);}
-
-/*체크박스*/
-/* checkbox+label */
-input[type='checkbox'] {width:20px;height:20px;}
-input[type='checkbox']+label{min-height:20px;margin:5px 0 0;padding:5px 0 8px 23px;font-size:13px;line-height:20px;color:#565a5d;background-image:url(../images/form/ico-checkbox-default.png);background-repeat:no-repeat;background-position:0 4px;background-size:20px;}
-/* checkbox checked+label */
-input[type='checkbox']:checked+label{background-image:url(../images/form/ico-checkbox-chk.png);}
-/* checkbox disabled+label */
-input[type='checkbox']:disabled+label{background-image:url(../images/form/ico-checkbox-default-dis.png);}
-/* checkbox disabled:checked+label */
-input[type='checkbox']:disabled:checked+label{background-image:url(../images/form/ico-checkbox-chk-dis.png);}
-
-/* type02 checkbox+label */
-input[type='checkbox'].type02 {width:18px;height:18px;}
-input[type='checkbox'].type02+label{min-height:18px;margin:0;padding:0 0 0 29px;font-size:14px;line-height:18px;color:#000;background-image:url(../images/form/ico-checkbox2-default.png);background-repeat:no-repeat;background-position:0 0;background-size:18px;}
-input[type='checkbox'].type02+label span{vertical-align:baseline}
-/* type02 checkbox checked+label */
-input[type='checkbox'].type02:checked+label{	background-image:url(../images/form/ico-checkbox2-chk.png);}
-/* type02 checkbox disabled+label */
-input[type='checkbox'].type02:disabled+label{	background-image:url(../images/form/ico-checkbox2-default-dis.png);}
-/* type02 checkbox disabled:checked+label */
-input[type='checkbox'].type02:disabled:checked+label{background-image:url(../images/form/ico-checkbox2-chk-dis.png);}
-
-/* type03 checkbox+label */
-input[type='checkbox'].type03{width:20px;height:20px;cursor:pointer;}
-input[type='checkbox'].type03+label{min-height:20px;margin:0;padding:0 0 0 23px;font-size:14px;letter-spacing:-.04em;line-height:20px;color:#000;background-image:url(../images/form/ico-checkbox3-default.png);background-repeat:no-repeat;background-position:0 4px;background-size:auto;}
-input[type='checkbox'].type03+label span{vertical-align:baseline}
-/* type03 checkbox checked+label */
-input[type='checkbox'].type03:checked+label{	background-image:url(../images/form/ico-checkbox3-chk.png);font-family:"Noto Sans Bold"}
-/* type03 checkbox disabled+label */
-input[type='checkbox'].type03:disabled+label{	background-image:url(../images/form/ico-checkbox3-default-dis.png);}
-/* type03 checkbox disabled:checked+label */
-input[type='checkbox'].type03:disabled:checked+label{background-image:url(../images/form/ico-checkbox3-chk-dis.png);}
 
 /* customScroll */
 .customScroll .mCSB_inside>.mCSB_container{margin-right:25px;}
