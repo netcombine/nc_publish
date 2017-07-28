@@ -11,39 +11,39 @@
 	<link rel="stylesheet" type="text/css" href="css/common.css"/>
 	<link rel="stylesheet" type="text/css" href="css/font.css"/>
 	<style type="text/css">
+	html{height:100%;}
 	h1,ul,ol,li,p,div{position:relative;margin:0;padding:0;overflow:hidden;}
 	body{margin:0;padding:0;font-size:12px;line-height:2.5rem;}
-	.header{padding:10px 20px;}
-	h1{float:left;}
-	.header img{display:none;}
-	.header span,.header a{float:right;font-size:13px;font-weight:normal;border:1px solid #ccc;margin-top:16px;padding:5px;line-height:1.0;}
-	.header a{margin:16px 15px 0;font-size:14px;}
-	.title{display:table;width:100%;background:#e0e0e0;border-bottom:1px solid #ccc;}
+	.header{padding:0 20px;background:#141414;}
+	h1{visibility:hidden;width:0;height:0;line-height:0;font-size:0;}
+	.header span{float:right;margin:8px 0 0;font-size:13px;font-weight:normal;padding:5px;line-height:1.0;color:#f2f2f2;}
+	.header a{display:inline-block;width:150px;font-size:0;padding:5px;line-height:0;}
+	.header img{display:inline-block;width:100%;}
+	.title{display:table;width:100%;border-top:1px solid #efefef;border-bottom:1px solid #efefef;background:#fff;}
 	.title span{display:table-cell;padding:0 10px;font-weight:900;text-align:center;}
 	.title .tit_name{width:auto;}
 	.title .tit_condition{width:5%;}
 	.title .tit_id{width:10%;}
 	.title .tit_date{width:10%;}
 	.title .tit_reference{width:20%;}
-	.list li{cursor:pointer;border-top:1px solid #ccc;}
+	.list li{cursor:pointer;}
+	.list li:first-of-type{border-top:0;}
 	.list .depth1 ul{display:none;}
-	.list .depth1-txt{display:block;padding:7px;}
-	.list .depth1-txt:hover{background:#eee;}
-	.list .depth2-txt:hover{background:#eee;}
+	.list .depth1-txt{display:block;padding:7px 15px;background:#fff;}
+	.list .depth1-txt:hover{background:#f9f9f9;}
 	.list .depth2 .con{padding:7px 20px;}
-	.list .con:hover{background:#ddd;}
-	.depth1{border-top:2px solid #bbb;}
-	.depth1:first-of-type{border-top:none;}
-	.depth1:last-of-type{border-bottom:2px solid #bbb;}
+	.list .con:hover{background:#f9f9f9;}
+	.list .depth1 a{border-bottom:1px solid #efefef;}
 
-	.progress{position:relative;padding:0 10px;margin:0 0 10px 0;overflow:hidden;}
+	.progress{position:relative;padding:33px 15px 43px;overflow:hidden;}
 	.progress .txt{float:left;text-align:left;font-size:14px;}
-	.progress .bar1{display:none;position:relative;box-sizing:border-box;border:3px solid #999;width:100%;height:26px;border-radius:20px;}
-	.progress .bar2{display:none;position:absolute;left:0;top:0;width:50%;height:20px;background:#ff4571;border-radius:10px;}
-	.progress strong{font-size:14px;}
+	.progress .bar1{display:none;position:relative;box-sizing:border-box;width:100%;height:3px;border-radius:3px;background:#a1091f;}
+	.progress .bar2{display:none;position:absolute;left:0;top:0;width:50%;height:3px;border-radius:3px;background:#fff;}
+	.progress strong{margin:0 0 0 15px;font-size:17px;}
 	.progress strong:after{content:' %';}
-	.progress em{font-style:normal;font-size:14px;}
+	.progress em{font-style:normal;font-size:14px;color:#7d0113;font-weight:700;}
 	.progress em:first-of-type::after{content:' / ';}
+	.progress .flow{display:inline-block;float:right;margin:0 15px 0 0;}
 	.progress .now{margin:0 0 0 20px;}
 	.progress .total{}
 	.info_progress{float:right;right:0;top:0;}
@@ -62,7 +62,7 @@
 	.list .progress_note em.now{margin:0 0 0 20px;}
 	.list .depth2 a{display:table;position:relative;width:100%;}
 	.list .depth2 a span{display:table-cell;padding:5px 0;vertical-align:middle;}
-	.list .depth2 a .bg{display:none;position:absolute;left:0;top:0;bottom:0;width:100%;background:rgba(255,69,113,.6);z-index:-1;}
+	.list .depth2 a .bg{display:none;position:absolute;left:0;top:0;bottom:0;width:100%;background:rgba(210,210,210,.6);z-index:-1;}
 	.sub-no{padding:5px 0 5px 25px !important;width:40%;}
 	.sub-name{padding:5px 0 5px 25px !important;width:40%;text-align:left;}
 	.list ul ul .sub-no{padding:5px 0 5px 40px !important;width:40%;text-align:left;}
@@ -74,22 +74,23 @@
 	.sub-date{width:10%;text-align:center;color:#ef2b2b;}
 	.sub-reference{width:20%;text-align:center;color:#1d62ff;}
 	.sub-reference em{color:#ef2b2b;}
-	.depth1-txt strong:after{display:inline-block;margin:0 0 0 5px;font-size:10px;content:'▼';}
-	.only .depth1-txt strong:after{content:'';}
-	.depth1-txt.on strong:after{display:inline-block;margin:0 0 0 5px;font-size:10px;content:'▲';}
-	.depth2-txt .sub-no:after{display:inline-block;margin:0 0 0 5px;font-size:10px;content:'▼';}
-	.depth2-txt.only .sub-no:after{content:'';}
-	.only .depth2-txt .sub-no:after{content:'';}
-	.list ul ul .depth2-txt .sub-no:after{content:'';}
-	.depth2-txt.on .sub-no:after{display:inline-block;margin:0 0 0 5px;font-size:10px;content:'▲';}
+	.depth1-txt strong:after{position:absolute;top:23px;right:15px;display:inline-block;font-size:10px;content:'';width:12px;height:8px;background-image:url('weblist_images/ico-arrow.png');background-repeat:no-repeat;background-position:0 0;background-size:12px;}
+	.only .depth1-txt strong:after{content:'';display:none;}
+	.depth1-txt.on strong:after{display:inline-block;margin:0 0 0 5px;font-size:10px;background-position:0 -8px;}
+	.depth2-txt .sub-no:after{position:absolute;top:23px;right:15px;display:inline-block;font-size:10px;content:'';width:12px;height:8px;background-image:url('weblist_images/ico-arrow.png');background-repeat:no-repeat;background-position:0 0;background-size:12px;}
+	.depth2-txt.only .sub-no:after{content:'';display:none;}
+	.only .depth2-txt .sub-no:after{content:'';display:none;}
+	.list ul ul .depth2-txt .sub-no:after{content:'';display:none;}
+	.depth2-txt.on .sub-no:after{display:inline-block;margin:0 0 0 5px;font-size:10px;background-position:0 -8px;}
 	@media all and (max-width:720px){
 		h1{float:none;height:0;font-size:0;}
-		.header a{margin:0;font-size:0;border:none;}
-		.header img{display:inline-block;width:100%;}
-		.header .today_time{margin:0;font-size:12px;border:none;}
-		.progress .txt{position:absolute;left:25px;top:0;font-size:0;line-height:25px;color:#fff;text-shadow:0 0 5px #000,0 0 3px #000,0 0 1px #000;}
+		.header a{margin:9px 0 0;width:100px;height:auto;font-size:0;border:none;vertical-align:top;}
+		.header .today_time{margin:8px 0 0;font-size:12px;border:none;vertical-align:top;}
+		.progress{background:#c9102a;}
+		.progress .txt{position:absolute;left:0;top:35px;width:100%;font-size:0;line-height:25px;color:#fff;}
 		.progress .bar1{display:block;}
 		.progress .bar2{display:block;}
+		.title{border-top:0;}
 		.title .tit_id{display:none;}
 		.title .tit_date{display:none;}
 		.title .tit_reference{display:none;}
@@ -183,7 +184,7 @@
 	}
 	function set_date(){//날짜 셋팅
 		var da = new Date();
-		var da_txt = da.getFullYear()+'년 '+(da.getMonth()+1)+'월 '+da.getDate()+'일';
+		var da_txt = da.getFullYear()+', '+(da.getMonth()+1)+'월 '+da.getDate();
 		return da_txt;
 	}
 	$(window).on('load',function(){
@@ -312,7 +313,7 @@
 	</div>
 	<div class="progress">
 		<span class="bar1"><span class="bar2"></span></span>
-		<span class="txt">전체 진행률 : <strong>50</strong><em class="now">2</em><em class="total">10</em></span>
+		<span class="txt">전체 진행률 : <strong>50</strong><span class="flow"><em class="now">2</em><em class="total">10</em></span></span>
 	</div>
 	<div class="title">
 		<span class="tit_name">Channel</span>
