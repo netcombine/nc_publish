@@ -111,7 +111,7 @@ nc_landing.action = {
 			'transform':'translate(0 ,'+this.scroll_gap+'px)'
 		});
 		$('body').css({
-			'height':nc_landing.util.get_winH(),
+			'height':nc_landing.util.win_info.get_winH(),
 			'overflow-y':'hidden'
 		});
 	},
@@ -370,7 +370,7 @@ nc_landing.action = {
 		},
 		popup_posY : function(){
 			var pop = $('.popup-info');
-			var pop_h = (nc_landing.util.get_winH()-pop.height())*.5;
+			var pop_h = (nc_landing.util.win_info.get_winH()-pop.height())*.5;
 			pop.css({'top':pop_h});
 		},
 		close : function(){
