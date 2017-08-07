@@ -17,8 +17,8 @@
 	body{margin:0;padding:0;font-size:12px;line-height:2.5rem;}
 	.header{padding:0 20px;background:#141414;}
 	h1{visibility:hidden;width:0;height:0;line-height:0;font-size:0;}
-	.header span{float:right;margin:8px 0 0;font-size:13px;font-weight:normal;padding:5px;line-height:1.0;color:#f2f2f2;}
-	.header a{display:inline-block;width:150px;font-size:0;padding:5px;line-height:0;}
+	.header span{float:right;margin:8px 0 0;font-size:13px;font-weight:normal;padding:5px 0;line-height:1.0;color:#f2f2f2;}
+	.header a{display:inline-block;width:130px;font-size:0;padding:13px 0;line-height:0;vertical-align:top;}
 	.header img{display:inline-block;width:100%;}
 	.title{display:table;width:100%;border-top:1px solid #efefef;border-bottom:1px solid #efefef;background:#fff;}
 	.title span{display:table-cell;padding:0 10px;font-weight:900;text-align:center;}
@@ -85,7 +85,7 @@
 	.depth2-txt.on .sub-no:after{display:inline-block;margin:0 0 0 5px;font-size:10px;background-position:0 -8px;}
 	@media all and (max-width:720px){
 		h1{float:none;height:0;font-size:0;}
-		.header a{margin:9px 0 0;width:100px;height:auto;font-size:0;border:none;vertical-align:top;}
+		.header a{width:100px;height:auto;margin:9px 0 0;padding:5px 0;font-size:0;border:none;}
 		.header .today_time{margin:8px 0 0;font-size:12px;border:none;vertical-align:top;}
 		.progress{background:#c9102a;}
 		.progress .txt{position:absolute;left:0;top:35px;width:100%;font-size:0;line-height:25px;color:#fff;}
@@ -185,7 +185,7 @@
 	}
 	function set_date(){//날짜 셋팅
 		var da = new Date();
-		var da_txt = da.getFullYear()+', '+(da.getMonth()+1)+'월 '+da.getDate();
+		var da_txt = da.getFullYear()+', '+(da.getMonth()+1)+'월 '+da.getDate()+'일';
 		return da_txt;
 	}
 	$(window).on('load',function(){
