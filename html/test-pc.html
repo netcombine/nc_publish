@@ -67,18 +67,15 @@
 	<style type="text/css">
 		/* test */
 		.test-box{position:relative;}
-		.test-box>div{position:relative;min-height:60px;padding:0 0 0 100px;}
-		.test-box h3{position:absolute;top:10px;left:10px;color:#666eee;}
+		.test-box>div{position:relative;min-height:60px;padding:0 0 0 75px;}
+		.test-box h3{position:absolute;top:10px;left:5px;font-size:13px;word-break:break-all;color:#666eee;}
 
-		.test-box .btn-box{overflow:hidden;}
-		.test-box .btn-box span{display:inline-block;}
-		.test-box .btn-box li{float:left;}
-		.test-box .btn-box a{display:block;width:200px;border:1px solid #000;background:#fff;padding:10px;margin:10px;text-align:center;}
+		.test-box .btn-box a{display:block;max-width:300px;border:1px solid #000;background:#fff;padding:10px 0;margin:10px 0;text-align:center;}
 		.test-box .btn-box a.on{background:#000;color:#fff;}
 
 		.test-top_btn .btn-box a{display:none;}
 
-		.test-img_ratio .img-box{width:300px;margin:10px;}
+		.test-img_ratio .img-box{width:100%;max-width:500px;margin:10px;}
 		.test-img_ratio .img-thum{padding-top:44%;}
 
 		.test-tab .tabArea{margin:10px auto 0;}
@@ -114,10 +111,10 @@
 				<div class="test-box">
 					<div class="test-scroll">
 						<h3>scroll</h3>
-						<ul class="btn-box">
-							<li><a href="#none" class="btn-fix-scroll">fix_scroll</a></li>
-							<li><a href="#none" class="btn-auto-scroll">auto_scroll</a></li>
-						</ul>
+						<div class="btn-box">
+							<a href="#none" class="btn-fix-scroll">fix_scroll</a>
+							<a href="#none" class="btn-auto-scroll">auto_scroll</a>
+						</div>
 					</div><!-- //.test-scroll -->
 					<div class="test-anchor">
 						<h3>anchor</h3>

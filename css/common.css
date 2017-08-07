@@ -226,3 +226,7 @@ iframe, hr{border:none;}
 .img-box img{position:absolute;top:0;left:0;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);}
 .img-box.ww img{height:100% !important;width:auto !important;}
 .img-box.hh img{width:100% !important;height:auto !important;}
+
+/*loading*/
+.loading{position:fixed;left:0;top:0;right:0;bottom:0;background:#fff url(../images/common/logo-loading.png) no-repeat center 95%;background-size:50px;z-index:101;}
+.loading-box{position:absolute;left:50%;top:50%;margin:-24px 0 0 -24px;width:48px;height:48px;background:url(../images/common/loading.png) no-repeat 0 0;background-size:48px;}
