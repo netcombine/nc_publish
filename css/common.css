@@ -24,7 +24,7 @@ input[type=text]+.btnS, input[type=password]+.btnS,input[type=text]+input[type=t
 input[type=text][disabled]{background-color:#f7f7f7}
 label+.typeRadio{margin-left:30px}
 input[type=text]+.checkbox{margin-left:16px}
-input[type=file]{width:200px;height:20px;height:30px\9;*height:30px;}
+input[type=file]{width:200px;height:20px;height:30px;height:30px;}
 input[type=file]::-ms-value{border:0 none}
 input[type=file]::-ms-browse{border:0 none;border-left:1px solid #ccc}
 select{height:38px;padding:2px 4px 3px 7px;border:1px solid #ccc;font-size:13px;color:#3c3c3c}

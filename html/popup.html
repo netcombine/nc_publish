@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=medium-dpi" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="shortcut icon" href="../images/common/favicon.ico" />
+	<link rel="shortcut icon" href="../images/common/favicon.png" />
+	<link rel="apple-touch-icon" href="../images/common/favicon.png" />
+	<meta name="description" content="페이지설명" />
+	<meta name="keywords" content="서비스키워드" />
+	<meta property="og:title" content="Netcombine 홈페이지" />
+	<meta property="og:site_name" content="Netcombine" />
+	<meta property="og:image" content="../image/common/nc_facebook.jpg" />
+	<meta property="og:description" content="netcombine framework" />
+	<meta name="mobile-web-app-capable" content="yes"><!-- [C] 안드로이드 홈화면추가시 상단 주소창 제거 -->
+	<meta name="apple-mobile-web-app-capable" content="yes"><!-- [C] ios홈화면추가시 상단 주소창 제거 -->
+	<title>Netcombine Framework</title>
+	<link rel="stylesheet" type="text/css" href="../css/font.css" media="all" /><!-- [C] webfont 본고딕-->
+	<link rel="stylesheet" type="text/css" href="../css/common.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="../css/components.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="../css/owl.carousel2.css" media="all" /><!-- [C] owl2 API css -->
+	<link rel="stylesheet" type="text/css" href="../css/swiper.css" media="all" /><!-- [C] swiper API css -->
+	<link rel="stylesheet" type="text/css" href="../css/jquery.mCustomScrollbar.min.css" media="all" /><!-- [C] scrollbar API css -->
+	<link rel="stylesheet" type="text/css" href="../css/selectric.css" media="all" /><!-- [C] select box css -->
+	<script type="text/javascript" src="../js/lib/jquery-1.12.3.min.js"></script><!--[C] jquery API-->
+	<script type="text/javascript" src="../js/lib/handlebars-v4.0.5.js"></script><!--[C] handlebars tmpl API-->
+	<script type="text/javascript" src="../js/lib/owl.carousel2.js"></script><!-- [C] owl2 API -->
+	<script type="text/javascript" src="../js/lib/swiper.jquery.js"></script><!--[C] swiper API -->
+	<script type="text/javascript" src="../js/lib/jquery.mCustomScrollbar.min.js"></script><!-- [C] scrollbar API -->
+	<!--<script type="text/javascript" src="../js/lib/jquery.selectric.min.js"></script>--><!-- [C] selectbox API js -->
+	<script type="text/javascript" src="../js/lib/mRselect.js"></script><!-- [C] selectbox API js -->
+	<script type="text/javascript" src="../js/vars.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/page.js"></script>
+	<script type="text/javascript" src="../js/components.js"></script>
+</head>
+<body>
+	<div id="skipNav" class="skip_navi">
+		<ul>
+		<li><a href="#header">메뉴 바로가기</a></li>
+		<li><a href="#content">본문 바로가기</a></li>
+		<li><a href="#footer">푸터 바로가기</a></li>
+		</ul>
+	</div><!-- //#skip_navigation-->
+	<div id="wrap">
+		<div id="container">
+			<div id="content">
+				<h2 class="blind">본문영역</h2>
+				<p>본문영역</p>
+				<a href="javascript:openPopup()">팝업열기</a>
+				<style>
+					#content ul{margin:0 0 30px;}
+					#content li{text-align:center;font-size:20px;font-weight:bold;color:#333;}
+				</style>
+				<script id="test" type="text/x-handlebars-template">
+					<ul>
+						<li>{{title}}</li>
+						{{#each items}}
+						<li>{{title}} {{eng}} {{color}}</li>
+						{{/each}}
+					</ul>
+					<ul>
+						<li>{{title}}</li>
+						{{#each items}}
+						<li>{{@index}} : {{title}} {{eng}} {{color}}</li>
+						{{/each}}
+					</ul>
+					<ul>
+						<li>{{title}}</li>
+						{{#each item}}
+						<li>{{@index}} {{@key}} : {{this}} {{#if @first}}첫번째{{else if @last}}마지막{{/if}}</li>
+						{{/each}}
+					</ul>
+					<ul>
+						<li>{{title}}</li>
+						{{#each items2}}
+						<li>{{title}} {{eng}} {{color}}</li>
+						{{else}}
+						<li>no data</li>
+						{{/each}}
+					</ul>
+					<ul>
+						<li>{{title}}</li>
+						<li>{{item.title}} {{item.eng}} {{item.color}}</li>
+						{{#with item}}
+						<li>{{title}} {{eng}} {{color}}</li>
+						{{/with}}
+					</ul>
+					{{! 핸들바 전용 주석 }}
+					<ul>
+						<li>{{title}}</li>
+						{{#each items}}
+						
+						<li>{{lookup ../foo @key}}</li>
+						{{/each}}
+					</ul>
+					{{! 핸들바 콘솔찍기 }}
+					{{log "Look at me!"}}
+					{{log "\"Handlebars Log\" send info!" level="info"}}
+					{{log "\"Handlebars Log\" send error!" level="error"}}
+					{{log "\"Handlebars Log\" send debug!" level="debug"}}
+					{{log "\"Handlebars Log\" send warn!" level="warn"}}
+				</script>
+				<script type="text/javascript">
+					(function(){
+						var test = $('#test').html();
+						var template = Handlebars.compile(test);
+						var data = {
+							title : '타이틀',
+							item : {title:"오렌지", eng:"Orange",color:"orange"},
+							items : [
+								{title:"사과",eng:"Apple",color:"red"},
+								{title:"바나나",eng:"Banana",color:"yellow"},
+								{title:"멜론",eng:"Melon",color:"green"},
+								{title:"포도",eng:"Grape",color:"purple"}
+							]
+						}
+						var item = template(data);
+						$('#content').append(item);
+						console.trace();
+					})();
+				</script>
+			</div><!-- //#content -->
+		</div><!-- //#container -->
+	</div><!-- //#wrap -->
+</body>
+</html>

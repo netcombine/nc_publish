@@ -83,8 +83,8 @@
 						<ul class="file-list">
 							<li class="btn-add">
 								<label>
-									<span class="txt">파일첨부</span>
 									<input type="file" />
+									<span class="txt">파일첨부</span>
 								</label>
 							</li>
 							<!--추가되는 형태
@@ -126,11 +126,11 @@
 				<div style="margin:10px 0 0;">
 					<div class="filebox type2">
 						<span class="file-name">
-							<input type="text" value="" readonly/>
+							<span></span>
 						</span>
 						<label class="file-input">
-							<span class="txt">파일첨부</span>
 							<input type="file"/>
+							<span class="txt">파일첨부</span>
 						</label>
 					</div>
 					<script>
@@ -178,18 +178,20 @@
 					.filebox.type1 .txt-mb{position:absolute;display:inline-block;top:0;right:12px;font-size:14px;line-height:35px;color:#9496a3;}
 					.filebox.type1 .file-list{overflow:hidden;min-height:35px;margin:0 150px 0 110px;}
 					.filebox.type1 .file-list li{position:relative;float:left;margin:0 20px 0 0;box-sizing:border-box;}
-					.filebox.type1 .file-list .btn-add{position:absolute;top:0;left:0;width:84px;height:35px;background:#2470ee;border:1px solid #2470ee;vertical-align:top;color:#fff;}
-					.filebox.type1 .btn-add .txt{display:block;width:100%;height:100%;font-size:14px;line-height:32px;text-align:center;}
+					.filebox.type1 .file-list .btn-add{position:absolute;top:0;left:0;width:84px;height:35px;vertical-align:top;color:#fff;}
+					.filebox.type1 .btn-add .txt{display:block;width:100%;height:100%;background:#2470ee;border:1px solid #2470ee;font-size:14px;line-height:32px;text-align:center;}
 					.filebox.type1 .btn-add input{position:absolute;left:0;top:0;width:84px;height:32px;opacity:0;cursor:pointer;z-index:1;}
+					.filebox.type1 .btn-add input:focus + .txt{outline: -webkit-focus-ring-color auto 5px;}
 					.filebox.type1 .files{padding:0 25px 0 0;}
 					.filebox.type1 .files .file-txt{line-height:30px;font-size:14px;color:#54585e;}
 					.filebox.type1 .files .btn-del{position:absolute;top:7px;right:0;display:inline-block;width:20px;height:20px;background:url(../images/form/ico-file-close.png) no-repeat center center;z-index:1;cursor:pointer;}
 					.filebox.type2{display:inline-block;position:relative;padding:0 84px 0 0;}
-					.filebox.type2 .file-name{width:100%;}
-					.filebox.type2 .file-name input{width:100%;}
+					.filebox.type2 .file-name{display:block;width:100%;}
+					.filebox.type2 .file-name span{display:block;border:1px solid #000;width:100%;text-overflow:ellipsis}
 					.filebox.type2 .file-input{position:absolute;right:0;top:0;bottom:0;}
-					.filebox.type2 .file-input input{position:absolute;right:0;top:0;bottom:0;left:0;opacity:0;filter:alpha(opacity=0)}
+					.filebox.type2 .file-input input{position:absolute;right:0;top:0;bottom:0;left:0;width:100%;height:100%;opacity:0;filter:alpha(opacity=0)}
 					.filebox.type2 .file-input .txt{display:block;box-sizing:border-box;padding:8px 0;width:84px;height:37px;background:#2470ee;border:1px solid #2470ee;vertical-align:top;color:#fff;font-size:14px;line-height:20px;text-align:center;}
+					.filebox.type2 .file-input input:focus + .txt{outline: -webkit-focus-ring-color auto 5px;}
 					
 					/* input */
 					.inputbox{display:inline-block;position:relative;}
@@ -292,7 +294,6 @@
 									$(this).attr('checked',true);
 								}
 							}).on('focusin',function(){
-								console.log('a');
 								$(this).closest('label').addClass('focus');
 							}).on('focusout',function(){
 								$(this).closest('label').removeClass('focus');
