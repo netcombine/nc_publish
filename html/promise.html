@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta property="og:image" content="http://www.netcombine.com/img/facebook_img.jpg"/>
+	<meta property="og:title" content="넷컴바인 주식회사"/>
+	<meta property="og:url" content="http://www.netcombine.com/index.html"/>
+	<meta property="og:description" content="넷컴바인은 디지털 세상의 새로운 가치를 창출하여 고객의 성공과 함께 합니다.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0"/>
+	<title></title>
+	<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/default.css"/>
+	<link rel="stylesheet" type="text/css" href="css/layout.css"/>
+	<script>
+	var func1 = function(param){
+		return new Promise(function(res,rej){
+			setTimeout(function(){
+				if(param){
+					var obj = {'a':'a','b':'b'}
+					console.log(obj);
+					res(obj);
+				}else{
+					rej(Error('error'));
+				}
+			},1000);
+		});
+	}
+	var func2 = function(param){
+		return new Promise(function(res,rej){
+			setTimeout(function(){
+				if(param){
+					param.a = 'c';
+					res(param);
+					console.log(param);
+				}else{
+					rej(Error('error'));
+				}
+			},500);
+		});
+	}
+	var func3 = function(param){
+		return new Promise(function(res,rej){
+			setTimeout(function(){
+				if(param){
+					param.b = 'c';
+					console.log(param);
+					//res('333');
+				}else{
+					rej(Error('error'));
+				}
+			},100);
+		});
+	}
+	func1(true).then(func2).then(func3).catch(function(){
+		console.log('실패');
+	});
+	</script>
+</head>
+<body>
+</body>
+</html>
